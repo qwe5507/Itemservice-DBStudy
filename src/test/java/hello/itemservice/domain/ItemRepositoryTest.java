@@ -4,6 +4,7 @@ import hello.itemservice.repository.ItemRepository;
 import hello.itemservice.repository.ItemSearchCond;
 import hello.itemservice.repository.ItemUpdateDto;
 import hello.itemservice.repository.memory.MemoryItemRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Slf4j
 @Transactional
 @SpringBootTest
 class ItemRepositoryTest {
@@ -70,6 +72,8 @@ class ItemRepositoryTest {
         Item savedItem = itemRepository.save(item);
         Long itemId = savedItem.getId();
 
+
+        log.info("itemRepository={}", itemRepository.getClass());
         //when
         ItemUpdateDto updateParam = new ItemUpdateDto("item2", 20000, 30);
         itemRepository.update(itemId, updateParam);

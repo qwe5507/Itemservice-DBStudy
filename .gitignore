@@ -7,6 +7,8 @@ build/
 
 HELP.md
 
+/src/main/generated
+
 ### STS ###
 .apt_generated
 .classpath
